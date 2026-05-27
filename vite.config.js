@@ -6,6 +6,8 @@ export default {
   plugins: [
     tailwindcss(),
     react(), 
-    vike()
+    vike({
+      prerender: true
+    })
   ],
 }
