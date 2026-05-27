@@ -1,47 +1,65 @@
-# PRD: Catalog IQ (v5.0 - Reality-Hardened)
-**Autonomous Taxonomy Governance & High-Scale Ingestion Engine**
+# PRD: Catalog IQ (v6.0 - The 7-Step Interview Edition)
+**Autonomous Taxonomy Governance for Walmart Global Tech**
 
 | Role | Name |
 | :--- | :--- |
 | **Author** | Saurabh Chawda (Senior Product Manager) |
-| **Status** | Certified for Executive Review |
+| **Framework** | **STEP** (by Diego Granados) |
 | **Hiring Target** | Walmart Tech India |
 
 ---
 
-## 1. Executive Summary
-Catalog IQ is a "Command Center" for the world’s largest retail catalog. It shifts item governance from manual engineering tickets to an **Autonomous Supervisor Model**, enabling Category Managers to pivot hierarchies in real-time while protecting the $600B global supply chain from "Truck-Roll" data errors.
+## 1. CLARIFYING QUESTIONS
+- **Constraints:** MVP must ship within one quarter (Q2) with a lean team (4 Eng, 1 Design).
+- **Scale:** We are a large tech company (Walmart) managing $600B in GMV across millions of SKUs.
+- **Dependency:** Must integrate headlessly with the Global Data Platform (GDP).
 
-## 2. Strategic Objectives (The "So What?")
-- **Drive EDLP Efficiency:** Eliminate the "Data Tax" (manual corrections) to reduce Operational COGS by **$185k/qtr**.
-- **Market Dominance:** Reduce SKU onboarding latency from **4.2 days to <2 hours**.
-- **Risk Mitigation:** Prevent billion-dollar supply chain halts via **Blast Radius Analysis**.
+## 2. SET A GOAL
+**Primary Goal:** **Improve an existing workflow** (Taxonomy Management).
+**Specific Objective:** Transition from "Manual Engineering Tickets" to "Autonomous Self-Serve Governance" to drive **EDLP (Everyday Low Price) Efficiency**.
 
-## 3. Core Features (Implemented)
+## 3. DEFINE USERS (By Activity)
+- **Primary: The Workflow Supervisor (Sr. Category Managers)**
+  - Activity: Modifying data schemas to match seasonal retail pivots.
+- **Secondary: The Data Ingester (Global Suppliers)**
+  - Activity: Uploading high-scale CSV/Excel files (50k+ rows) into the Walmart catalog.
+- **Observer: The Risk Guardian (Executive Leadership)**
+  - Activity: Monitoring "Truck-Roll" supply chain risks before major changes go live.
 
-### P0: Reality-Hardened Hierarchy Engine
-- **AI Co-Pilot:** Suggests validation rules (Regex, Range checks) based on historical SKU patterns.
-- **Throttled CDC Invalidation:** Mass SKU updates are buffered in **5,000-unit batches** to prevent search index crashes.
-- **GDP API Headless Design:** Proves the UI is a transparent skin over Global Data Platform microservices.
+## 4. USER PAIN POINTS (Focused on "The Priyas")
+1.  **Engineering Bottleneck:** CMs wait 4–6 weeks for simple schema changes, causing missed seasonal revenue.
+2.  **The "Rejection Fatigue":** Suppliers receive opaque error reports, leading to endless email cycles and data corruption.
+3.  **Billion-Dollar Anxiety:** CMs fear that a simple "Mandatory" flag change will halt 500 trucks at distribution centers.
 
-### P0: Executive Governance Chain
-- **Blast Radius DC Mapping:** Real-time visibility into affected Distribution Centers (e.g., "12 US-East DCs at risk").
-- **Safety Lock Resilience:** Automated "Commit Lock" if the GDP Cluster signals <99.9% uptime.
-- **Governance Sign-off:** Multi-stakeholder approval (Logistics/Legal) with **SLA-Auto-Pass** logic.
+## 5. SOLUTIONS
+### S1: AI-Native Blueprint Engine (Reasonable)
+- AI suggests **Validation Rules** (e.g., "Must be numeric between 1-100") instead of just field names, hardening data at the source.
 
-### P1: Operational Supplier Portal
-- **Round-Trip Error Export:** Excel fixes for suppliers via CSV manifests with **Context Trace IDs**.
-- **Advisory Validation:** Strategic "Warning" mode that allows listing but flags "Low Quality" to maintain velocity.
+### S2: Round-Trip "Error Manifest" (Reasonable)
+- Export mistakes to Excel with **Context Trace IDs**. Suppliers fix in Excel and re-upload; the system maps fixes back to GDP APIs automatically.
 
-## 4. Product Roadmap (Future Phases)
+### S3: Autonomous Catalog Self-Healing (Moonshot)
+- A generative agent that automatically corrects 90% of supplier typos and unit mismatches (e.g., converting 'lbs' to 'kg') based on historical "Priya-Approved" patterns, achieving a "Zero-Touch" catalog.
 
-### Phase 2: Predictive SKU Intelligence (Q3 2026)
-- **Zero-Touch Classification:** LLM-native mapping that requires human intervention only for <85% confidence scores.
-- **Predictive ROI:** Simulation of GMV lift based on schema completeness.
+## 6. PRIORITIZE FEATURES (H/M/L)
+| Feature | Impact | Effort | Urgency | Priority |
+| :--- | :--- | :--- | :--- | :--- |
+| **Blast Radius Simulation** | High | Medium | High | **P0** |
+| **Throttled CDC Push** | High | High | High | **P0** |
+| **Bulk Error Export** | High | Low | Medium | **P1** |
+| **AI Rule Suggestions** | Medium | Medium | Low | **P2** |
 
-### Phase 3: Global Edge Sync (Q4 2026)
-- **Regional Schema Forking:** Allow India/US/Mexico to fork L4 attributes for local compliance while maintaining L1-L3 global integrity.
+## 7. MEASURE SUCCESS
+- **North Star (Goal):** SKU Onboarding Latency (Target: Reduce from 4.2 days to <2 hours).
+- **Signposts (Secondary):** 
+  - 82% of schema changes performed without engineering tickets.
+  - 2,450 engineering hours reclaimed per quarter.
+- **"Do No Harm" Metrics:** 
+  - **Truck-Roll Zero:** Zero supply chain halts caused by schema governance.
+  - **Search Poisoning:** <0.1% increase in "Low Quality" flags in the live search index.
 
-## 5. Technical Architecture (Constraints)
-- **CDC Impact Graph:** Sub-second blast radius calculation via Graph DB lookups.
-- **Idempotent gRPC:** Ensuring single-touch updates across distributed systems.
+---
+
+## TECHNICAL CONSTRAINTS
+- **Scalability:** 50,000+ SKU validations per batch.
+- **Resilience:** Mandatory "Safety Lock" during GDP Node degradation (503 timeouts).
