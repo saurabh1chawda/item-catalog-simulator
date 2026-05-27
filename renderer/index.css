@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  /* Walmart Dark Theme Official Palette */
+  --color-walmart-blue: #0071ce;
+  --color-walmart-dark: #041f41; 
+  --color-walmart-black: #020e1a; /* Deepest background */
+  --color-walmart-surface: #0a192f; /* Card background */
+  --color-walmart-border: #1a2a3a;
+  --color-walmart-spark: #ffc220;
+  --color-walmart-accent: #004c91;
+  --color-walmart-gray-50: #f8f9fa;
+  --color-walmart-gray-100: #f0f2f4;
+  --color-walmart-gray-400: #8892b0; /* Muted text for dark mode */
+  --color-walmart-gray-800: #ccd6f6; /* Bright text for dark mode */
+  --color-walmart-green: #64ffda; /* Luminous green for dark mode */
+  --color-walmart-red: #ff5e57;
+  
+  --font-sans: "Bogle", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-walmart-black text-walmart-gray-800 antialiased selection:bg-walmart-blue/30 selection:text-white;
+  }
+}
+
+@layer components {
+  /* Dark Mode Buttons */
+  .btn-primary {
+    @apply bg-walmart-blue text-white font-bold py-2.5 px-6 rounded-sm hover:bg-walmart-accent transition-all uppercase tracking-wider text-xs active:scale-[0.98] cursor-pointer shadow-lg shadow-walmart-blue/10;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border-2 border-walmart-blue text-walmart-blue font-bold py-2.5 px-6 rounded-sm hover:bg-walmart-blue/10 transition-all uppercase tracking-wider text-xs cursor-pointer;
+  }
+
+  .card {
+    @apply bg-walmart-surface rounded-none border border-walmart-border shadow-2xl p-6 transition-all duration-300;
+  }
+
+  .bg-tech-blueprint {
+    background-color: var(--color-walmart-black);
+    background-image: 
+      radial-gradient(circle at 2px 2px, rgba(100,255,218,0.03) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+
+  /* Dark mode scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-walmart-black;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-walmart-border hover:bg-walmart-blue transition-colors;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
